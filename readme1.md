@@ -8,12 +8,22 @@
 
 Containing numerous features, 3CTalk can provide multiple attendants, attendance system, department separation, quick responses, attendant identification, media, internal chat, customized Dashboard, integration with other systems via API and also a multilevel chat.
 
-## What languages ​​are used?
+## *What languages ​​are used?*
 
 The predominant and used languages ​​are: 
 - `Java Script`
 - `HTML`
 - `webSocket connection is also used`
 
-## Installing and using 3CTalk
+## *Installing and using 3CTalk*
+
+*Installing the server*
+
+With your preferred secure file transfer software, open the terminal and type the following commands:
+
+- `sudo su root
+    cd ~
+    apt install mysql-server 
+    mysql --version
+sudo mysql -u root`
 
