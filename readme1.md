@@ -22,8 +22,11 @@ The predominant and used languages ​​are:
 With your preferred secure file transfer software, open the terminal and type the following commands:
 
 - `sudo su root
+
     cd ~
-    apt install mysql-server 
+
+    apt install mysql-server
+     
     mysql --version
 sudo mysql -u root`
 
