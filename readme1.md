@@ -22,8 +22,20 @@ The predominant and used languages ​​are:
 With your preferred secure file transfer software, open the terminal and type the following commands:
 
 - ```sudo su root 
-    cd ~ ##br
+    cd ~ 
     apt install mysql-server 
     mysql --version
     sudo mysql -u root ```
+
+**This code should be written line by line in your terminal.**
+
+After the code sequence, you enter the code for mysql.
+
+
+```
+mysql> CREATE DATABASE testedb CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+mysql> USE mysql;
+mysql> UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+mysql> FLUSH PRIVILEGES;
+mysql> exit;```
 
