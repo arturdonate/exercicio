@@ -23,7 +23,7 @@ With your preferred secure file transfer software, open the terminal and type th
 
 - `sudo su root </br>
     cd ~
-    apt install mysql-server </br>
+    <br> apt install mysql-server </br>
     mysql --version
     sudo mysql -u root`
 
