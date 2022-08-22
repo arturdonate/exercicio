@@ -25,7 +25,7 @@ With your preferred secure file transfer software, open the terminal and type th
     cd ~ 
     apt install mysql-server 
     mysql --version
-    sudo mysql -u root ```
+    sudo mysql -u root 
 
 **This code should be written line by line in your terminal.**
 
@@ -37,5 +37,5 @@ mysql> CREATE DATABASE testedb CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 mysql> USE mysql;
 mysql> UPDATE user SET plugin='mysql_native_password' WHERE User='root';
 mysql> FLUSH PRIVILEGES;
-mysql> exit;```
+mysql> exit;
 
