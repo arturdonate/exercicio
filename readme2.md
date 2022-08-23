@@ -1,4 +1,4 @@
-##  3cTalk 💻
+##  3cTalk 💻 ![](\Users\E050\Desktop\Geovani\3C Talk\favicon.ico)
 
 ##  *O que é 3CTalk? 🔍*
 
