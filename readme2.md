@@ -17,7 +17,7 @@ As linguagens predominantes e usadas ​​são:
 
 ## *Instalando e usando 3CTalk*
 
-*Instalando o servidor*
+**Instalando o servidor**
 
 Antes de iniciar os comandos, você deverá criar 4 subdomínios e apontar para o IP de sua VPS:
 
@@ -238,4 +238,25 @@ sudo apt-get install snapd
 sudo snap install notes
 sudo snap install --classic certbot
 sudo certbot --nginx
+```
+🤖 ## *Instalção do Chatbot*
+
+Após a instalação do servidor, será feito a instalação do *servidor Chatbot*.
+
+Para começarmos a instalação do Chatbot, enviaremos o seguinte comando no mesmo terminal que foi utilizado para a instalção do servidor. 
+
+```
+cd ~
+cd 3ctalk/backend-chatbot
+npm install
+nano .env
+```
+Após esse envio, adcionaremos as seguintes informações:
+ ```
+ DB_HOST=localhost
+DB_DIALECT=mysql
+DB_USER=coopacredi
+DB_PASS=EIMAsol@3c
+DB_NAME=coopacredidb
+PORT=8081
 ```
