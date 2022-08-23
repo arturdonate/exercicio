@@ -1,21 +1,21 @@
-## 💻 3cTalk 💻
+##  3cTalk 💻
 
-## 📧 *O que é 3CTalk? 🔍*
+##  *O que é 3CTalk? 🔍*
 
 A 3CTalk foi criada com o objetivo de trazer uma evolução na comunicação entre uma empresa e seu cliente. Sendo uma plataforma simples de utilizar, onde a empresa apenas terá que se registar, selecionar a sua equipa, conseguindo assim monitorizar a sua assiduidade.
 
-## *Quais são seus recursos?*
+## *Quais são seus recursos? 🔍*
 
 Contendo inúmeras funcionalidades, o 3CTalk pode disponibilizar múltiplos atendentes, sistema de atendimento, separação de departamentos, respostas rápidas, identificação de atendente, mídia, chat interno, Dashboard customizado, integração com outros sistemas via API e também chat multinível.
 
-## *Quais linguagens são usadas?*
+## *Quais linguagens são usadas? 👨‍💻*
 
 As linguagens predominantes e usadas ​​são:
 - `JavaScript`
 - `HTML`
 - `conexão webSocket `
 
-## *Instalando e usando 3CTalk*
+## *Instalando e usando 3CTalk 💻*
 
 **Instalando o servidor**
 
@@ -239,7 +239,7 @@ sudo snap install notes
 sudo snap install --classic certbot
 sudo certbot --nginx
 ```
-## :robot: *Instalção do Chatbot*
+##  *Instalção do Chatbot 🤖*
 
 Após a instalação do servidor, será feito a instalação do *servidor Chatbot*.
 
