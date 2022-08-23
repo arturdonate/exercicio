@@ -1,4 +1,4 @@
- <img src="3Clogo.png"  widht: "46" height: "46"> 3cTalk 💻 
+ ## <img width="580" height="225" src="https://3c.tec.br/wp-content/uploads/2022/01/Group-74.png" class="attachment-large size-large" alt="" loading="lazy" srcset="https://3c.tec.br/wp-content/uploads/2022/01/Group-74.png 580w, https://3c.tec.br/wp-content/uploads/2022/01/Group-74-300x116.png 300w" sizes="(max-width: 580px) 100vw, 580px"> 3cTalk 💻 
 ## *O que é 3CTalk? 🔍*
 
 A 3CTalk foi criada com o objetivo de trazer uma evolução na comunicação entre uma empresa e seu cliente. Sendo uma plataforma simples de utilizar, onde a empresa apenas terá que se registar, selecionar a sua equipa, conseguindo assim monitorizar a sua assiduidade.
