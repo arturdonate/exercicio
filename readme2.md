@@ -1,6 +1,6 @@
-## 3cTalk
+## 💻 3cTalk 💻
 
-## *O que é 3CTalk?*
+## 📧 *O que é 3CTalk? 🔍*
 
 A 3CTalk foi criada com o objetivo de trazer uma evolução na comunicação entre uma empresa e seu cliente. Sendo uma plataforma simples de utilizar, onde a empresa apenas terá que se registar, selecionar a sua equipa, conseguindo assim monitorizar a sua assiduidade.
 
@@ -175,7 +175,7 @@ sudo apt install nginx
 sudo rm /etc/nginx/sites-enabled/default
 sudo nano /etc/nginx/sites-available/nameUser-frontend
 ``` 
-**INFORMAÇÕES**
+**❗INFORMAÇÕES❗**
 
 ```
 server {
@@ -222,7 +222,7 @@ sudo nginx -t
 sudo service nginx restart
 sudo nano /etc/nginx/nginx.conf
 ```
-**ALTERAÇÃO**
+**❗ALTERAÇÃO❗**
 ```
 http {
     ...
@@ -255,8 +255,9 @@ Após esse envio, adcionaremos as seguintes informações:
  ```
  DB_HOST=localhost
 DB_DIALECT=mysql
-DB_USER=coopacredi
-DB_PASS=EIMAsol@3c
-DB_NAME=coopacredidb
+DB_USER=nameUser
+DB_PASS=SuaSenh@
+DB_NAME=nameUser
 PORT=8081
 ```
+Com as alterações 
