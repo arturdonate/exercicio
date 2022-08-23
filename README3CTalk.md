@@ -299,7 +299,7 @@ server {
 ```
 Com as alterações feitas iremos, fazer outra alteração em seu backend enviando o seguinte comando `sudo nano /etc/nginx/sites-available/nameUserbot-backend`
 
-**❗ ALTERAÇÃO❗**
+**❗ ALTERAÇÃO ❗**
 ```
   location / {
     proxy_pass http://127.0.0.1:8081;
