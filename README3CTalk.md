@@ -29,7 +29,7 @@ Antes de iniciar os comandos, você deverá criar 4 subdomínios e apontar para 
 
 **Provavelmente o *seudominio* será o seu *nameUser*.**
 
-**Os domínios aqui citados são apenas exemplos.**
+***Os domínios aqui citados são apenas exemplos.***
 
 Após a criação dos subdomínios você deverá utilizar seu software de transferência de arquivos seguro preferido, abra o terminal e digite os seguintes comandos:
 
