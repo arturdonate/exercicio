@@ -239,7 +239,7 @@ sudo snap install notes
 sudo snap install --classic certbot
 sudo certbot --nginx
 ```
-🤖 ## *Instalção do Chatbot*
+## :robot: *Instalção do Chatbot*
 
 Após a instalação do servidor, será feito a instalação do *servidor Chatbot*.
 
