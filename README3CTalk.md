@@ -2,7 +2,7 @@
  
 ## *O que é 3CTalk? 🔍*
 
-A 3CTalk foi criada com o objetivo de trazer uma evolução na comunicação entre uma empresa e seu cliente. Sendo uma plataforma simples de utilizar, onde a empresa apenas terá que se registar, selecionar a sua equipe, conseguindo assim monitorizar a sua equipe.
+A 3CTalk foi criada com o objetivo de trazer uma evolução na comunicação entre uma empresa e seu cliente. Sendo uma plataforma simples e fácil de utilizar, onde a empresa apenas terá apenas que se registar, selecionar a sua equipe, conseguindo assim monitorizar a sua equipe.
 
 ## *Quais são seus recursos? 🔍*
 
@@ -272,7 +272,7 @@ cd ../frontend-chatbot
 npm install
 nano .env
 ```
-**❗ ALTERAÇÔES ❗**
+**❗ ALTERAÇÕES ❗**
 ```
 REACT_APP_BACKEND_URL = https://seudominiobotapi.3csolucoes.tec.br
 REACT_APP_HOURS_CLOUSE_TICKETS_AUTO=1440
@@ -284,7 +284,7 @@ pm2 list
 
 sudo nano /etc/nginx/sites-available/userNamebot-frontend
 ``` 
-**❗ ALTERAÇÔES ❗**
+**❗ ALTERAÇÕES ❗**
 ```
 server {
   server_name seudominiobot.3csolucoes.tec.br;
