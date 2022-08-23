@@ -28,6 +28,7 @@ Antes de iniciar os comandos, você deverá criar 4 subdomínios e apontar para 
 - SUB 4: BACKEND DO 3CTalk > seudominioapi.3csolucoes.tec.br
 
 **Provavelmente o *seudominio* será o seu *nameUser*.**
+**Os domínios aqui citados são apenas exemplos.**
 
 Após a criação dos subdomínios você deverá utilizar seu software de transferência de arquivos seguro preferido, abra o terminal e digite os seguintes comandos:
 
