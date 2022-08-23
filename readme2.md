@@ -8,9 +8,9 @@ A 3CTalk foi criada com o objetivo de trazer uma evolução na comunicação ent
 
 Contendo inúmeras funcionalidades, o 3CTalk pode disponibilizar múltiplos atendentes, sistema de atendimento, separação de departamentos, respostas rápidas, identificação de atendente, mídia, chat interno, Dashboard customizado, integração com outros sistemas via API e também chat multinível.
 
-## *Quais idiomas são usados?*
+## *Quais linguagens são usadas?*
 
-Os idiomas predominantes e usados ​​são:
+Os linguagens predominantes e usadas ​​são:
 - `JavaScript`
 - `HTML`
 - `conexão webSocket `
@@ -18,6 +18,7 @@ Os idiomas predominantes e usados ​​são:
 ## *Instalando e usando 3CTalk*
 
 *Instalando o servidor*
+
 Antes de iniciar os comandos, você deverá criar 4 subdomínios e apontar para o IP de sua VPS:
 
 - SUB 1: FRONTEND DO CHATBOT > seudominio.3solucoes.tec.br
@@ -27,11 +28,11 @@ Antes de iniciar os comandos, você deverá criar 4 subdomínios e apontar para 
 
 Após a criação dos subdomínios você deverá utilizar  seu software de transferência de arquivos seguro preferido, abra o terminal e digite os seguintes comandos:
 
-- ``` sudo su root 
+  ~~~ sudo su root 
     cd ~ 
     apt install mysql-server 
     mysql --version
-    sudo mysql -u root 
+    sudo mysql -u root ~~~
 
 **Este código deve ser escrito linha por linha em seu terminal.**
 
