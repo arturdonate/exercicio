@@ -67,7 +67,7 @@ adduser nomeUser
 usermod -aG sudo nomeUser
 su nomeUser
 ```
-Adicionado seu usuário você deverá enviar mais comandos para seu terminal.
+Adicionado seu usuário você deverá enviar mais comandos para seu terminal, onde estará sendo enviado a senha.
 
 ```
 sudo mysql
@@ -87,5 +87,155 @@ sudo usermod -aG mysql ${USER}
 su - ${USER}
 cd ~
 ```
+Com os próximos comandos será instalado o git onde será feita uma clonagem.
 
+```
+sudo apt install git
+git clone https://3CTec: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@github.com/3CTec/3ctalk.git 3ctalk
+```
+Com o git instalado e com o clone do 3CTec, enviaremos os próximos comandos para adcionarmos informações em nosso backend. 
+```
+cp 3ctalk/backend/.env.example 3ctalk/backend/.env
+nano 3ctalk/backend/.env
+```
 
+Após entrarmos no backend, enviaremos as seguintes alterações, fazendo as mudanças necessárias.
+
+```
+NODE_ENV=DEVELOPMENT
+BACKEND_URL=https://seudominioapi.3csolucoes.tec.br
+FRONTEND_URL=https://seudominio.3csolucoes.tec.br
+PORT=8080
+PROXY_PORT=443
+CHROME_BIN=/usr/bin/google-chrome-stable
+DIALOG_FLOW_JSON=zdg-9un9-0aba54d6e44c.json
+DIALOG_FLOW_PROJECT_ID=zdg-9un9
+DIALOG_FLOW_LANGUAGE=pt-br
+
+DB_HOST=localhost
+DB_DIALECT=mysql
+DB_USER=nomeUser
+DB_PASS=SuaSenh@
+DB_NAME=testedb
+
+JWT_SECRET=saKPKKOxzczxcnscndcssccdsddngfsacxcs@Ers21vhhghee3c
+JWT_REFRESH_SECRET=kldflhxvcxcxkkkjxhchghjgkdsdsccsd4234asdasdcxcc3c
+```
+Após enviarmos as informações, deveremos enviar o seguinte comando:
+
+```
+sudo apt-get install -y libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
+Com todos comandos acimas enviados, enviaremos os seguintes comandos para concluir parte da instalção:
+
+```
+cd 3ctalk​
+cd backend
+npm install
+```
+
+Após isso será necessário sair do root e logar no usuário, subir a dist para o repositório no backend, após isso enviaremos os seguintes comandos: 
+```
+npx sequelize db:migrate
+npx sequelize db:seed:all
+npm start
+```
+Com isso enviaremos os comandos para instalar o pm2 globalmente e iniciar o js.
+
+```
+sudo npm install -g pm2
+pm2 start dist/server.js --name nameUser-backend
+pm2 startup ubuntu -u nameUser
+sudo env PATH=$PATH:/usr/bin pm2 startup ubuntu -u nameUser --hp /home/nameUser
+```
+Após instalarmos o pm2 globalmente, enviaremos comandos para fazermos algumas mudanças em seu frontend: 
+```
+cd ../frontend
+npm install
+nano .env
+```
+```
+REACT_APP_BACKEND_URL = https://testeapi.3csolucoes.tec.br
+REACT_APP_HOURS_CLOUSE_TICKETS_AUTO=1440
+nano src/pages/ZDGChatbot/index.js
+linha 39: https://seudominiobot.3csolucoes.tec.br
+```
+Após fazermos as alterações, vamos enviar os seguintes comandos: 
+```
+npm run build
+pm2 start server.js --name teste-frontend
+pm2 save
+pm2 list
+```
+Agora iremos fazer a instalação do ngix e vamos adcionar as seguintes informações em seu frontend: 
+```
+sudo apt install nginx
+sudo rm /etc/nginx/sites-enabled/default
+sudo nano /etc/nginx/sites-available/nameUser-frontend
+``` 
+**INFORMAÇÕES**
+
+```
+server {
+  server_name seudominio.3csolucoes.tec.br;
+
+  location / {
+    proxy_pass http://127.0.0.1:3333;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_cache_bypass $http_upgrade;
+  }
+}
+```
+
+Após adcionarmos as informações no frontend, vamos enviar o comando `sudo nano /etc/nginx/sites-available/nameUser-backend` para adcionarmos as seguintes informações para o backend: 
+```server {
+  server_name seudominioapi.3csolucoes.tec.br;
+
+  location / {
+    proxy_pass http://127.0.0.1:8080;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_cache_bypass $http_upgrade;
+  }
+}
+```
+Adcionada as informações reiniciaremos o ngix e vamos alterar uma de suas configurações com os comandos: 
+```
+cd /etc/nginx/sites-available/
+ls
+sudo ln -s /etc/nginx/sites-available/teste-frontend /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/teste-backend /etc/nginx/sites-enabled
+sudo nginx -t
+sudo service nginx restart
+sudo nano /etc/nginx/nginx.conf
+```
+**ALTERAÇÃO**
+```
+http {
+    ...
+    client_max_body_size 20M;
+}
+```
+Alterada as configurações do ngix, enviaremos os últimos comandos para acabarmos a instalação do nosso servidor.
+
+```
+sudo nginx -t
+sudo service nginx restart
+sudo apt-get install snapd
+sudo snap install notes
+sudo snap install --classic certbot
+sudo certbot --nginx
+```
