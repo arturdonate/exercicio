@@ -158,7 +158,7 @@ npm install
 nano .env
 ```
 ```
-REACT_APP_BACKEND_URL = https://testeapi.3csolucoes.tec.br
+REACT_APP_BACKEND_URL = https://seudominioapi.3csolucoes.tec.br
 REACT_APP_HOURS_CLOUSE_TICKETS_AUTO=1440
 nano src/pages/ZDGChatbot/index.js
 linha 39: https://seudominiobot.3csolucoes.tec.br
@@ -166,7 +166,7 @@ linha 39: https://seudominiobot.3csolucoes.tec.br
 Após fazermos as alterações, vamos enviar os seguintes comandos: 
 ```
 npm run build
-pm2 start server.js --name teste-frontend
+pm2 start server.js --name nameUser-frontend
 pm2 save
 pm2 list
 ```
@@ -217,8 +217,8 @@ Adcionada as informações reiniciaremos o ngix e vamos alterar uma de suas conf
 ```
 cd /etc/nginx/sites-available/
 ls
-sudo ln -s /etc/nginx/sites-available/teste-frontend /etc/nginx/sites-enabled
-sudo ln -s /etc/nginx/sites-available/teste-backend /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/nomeUser-frontend /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/nomeUser-backend /etc/nginx/sites-enabled
 sudo nginx -t
 sudo service nginx restart
 sudo nano /etc/nginx/nginx.conf
@@ -283,7 +283,7 @@ sudo nano /etc/nginx/sites-available/userNamebot-frontend
 **❗ ALTERAÇÔES ❗**
 ```
 server {
-  server_name coopacredibot.3csolucoes.tec.br;
+  server_name seudominiobot.3csolucoes.tec.br;
 
   location / {
     proxy_pass http://127.0.0.1:3000;
@@ -319,8 +319,8 @@ Com nossas alterações feitas enviaremos os últimos comandos para finalizarmos
 ```
 cd /etc/nginx/sites-available/
 ls
-sudo ln -s /etc/nginx/sites-available/coopacredibot-frontend /etc/nginx/sites-enabled
-sudo ln -s /etc/nginx/sites-available/coopacredibot-backend /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/nameUser-frontend /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/nameUserbot-backend /etc/nginx/sites-enabled
 sudo nginx -t
 sudo service nginx restart
 sudo certbot --nginx
