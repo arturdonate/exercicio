@@ -10,7 +10,7 @@ Contendo inúmeras funcionalidades, o 3CTalk pode disponibilizar múltiplos aten
 
 ## *Quais linguagens são usadas?*
 
-Os linguagens predominantes e usadas ​​são:
+As linguagens predominantes e usadas ​​são:
 - `JavaScript`
 - `HTML`
 - `conexão webSocket `
@@ -26,33 +26,66 @@ Antes de iniciar os comandos, você deverá criar 4 subdomínios e apontar para 
 - SUB 3: FRONTEND DO 3CTalk > seudominio.3csolucoes.tec.br
 - SUB 4: BACKEND DO 3CTalk > seudominioapi.3csolucoes.tec.br
 
-Após a criação dos subdomínios você deverá utilizar  seu software de transferência de arquivos seguro preferido, abra o terminal e digite os seguintes comandos:
+Após a criação dos subdomínios você deverá utilizar seu software de transferência de arquivos seguro preferido, abra o terminal e digite os seguintes comandos:
 
-  ~~~ sudo su root 
+```sudo su root 
     cd ~ 
     apt install mysql-server 
     mysql --version
-    sudo mysql -u root ~~~
+    sudo mysql -u root 
 
-**Este código deve ser escrito linha por linha em seu terminal.**
+ ```
+**Este código deverá ser escrito linha por linha em seu terminal.**
 
-Após a sequência de código, você insere o código para mysql.
+Após a sequência de comandos você ira inserir códigos em MySql.
 
 ```
-    mysql> CREATE DATABASE testedb CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-    mysql> USE mysql;
-    mysql> UPDATE user SET plugin='mysql_native_password' WHERE User='root';
-    mysql> FLUSH PRIVILEGES;
-mysql> exit;```
-    
-    
-    ```sudo nano /etc/mysql/my.cnf
-    [mysqld]
-    max_connections=1024
-    max_user_connections=1024
-    innodb_file_format = Barracuda
-    innodb_file_per_table = on
-    innodb_default_row_format = dynamic
+mysql> CREATE DATABASE testedb CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+mysql> USE mysql;
+mysql> UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+mysql> FLUSH PRIVILEGES;
+mysql> exit;
 
+```
+
+```
+sudo nano /etc/mysql/my.cnf
+
+[mysqld]
+max_connections=1024
+max_user_connections=1024
+innodb_file_format = Barracuda
+innodb_file_per_table = on
+innodb_default_row_format = dynamic
+```
+
+Após isso você devera reiniciar seu MySql com o comando `sudo service mysql restart ` e adcionar seu usuáro com os seguintes comandos em seu terminal.
+
+```
+sudo su root
+adduser nomeUser
+usermod -aG sudo nomeUser
+su nomeUser
+```
+Adicionado seu usuário você deverá enviar mais comandos para seu terminal.
+
+```
+sudo mysql
+GRANT ALL PRIVILEGES ON *.* TO 'nomeUser'@'localhost' IDENTIFIED BY 'SuaSenh@';
+FLUSH PRIVILEGES;
+exit
+```
+Após enviar sua senha e nome de usuário, você enviará os seguintes comandos para começarmos a instalar o 3cTalk.
+
+```
+sudo apt update && sudo apt upgrade
+curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+sudo apt update
+sudo usermod -aG mysql ${USER}
+su - ${USER}
+cd ~
+```
 
 
