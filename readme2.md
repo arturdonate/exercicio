@@ -21,7 +21,7 @@ As linguagens predominantes e usadas ​​são:
 
 Antes de iniciar os comandos, você deverá criar 4 subdomínios e apontar para o IP de sua VPS:
 
-- SUB 1: FRONTEND DO CHATBOT > seudominio.3solucoes.tec.br
+- SUB 1: FRONTEND DO CHATBOT > seudominiobot.3solucoes.tec.br
 - SUB 2: BACKEND DO CHATBOT > seudominiobotapi.3csolucoes.tec.br
 - SUB 3: FRONTEND DO 3CTalk > seudominio.3csolucoes.tec.br
 - SUB 4: BACKEND DO 3CTalk > seudominioapi.3csolucoes.tec.br
@@ -175,7 +175,7 @@ sudo apt install nginx
 sudo rm /etc/nginx/sites-enabled/default
 sudo nano /etc/nginx/sites-available/nameUser-frontend
 ``` 
-**❗INFORMAÇÕES❗**
+**❗ INFORMAÇÕES ❗**
 
 ```
 server {
@@ -222,7 +222,7 @@ sudo nginx -t
 sudo service nginx restart
 sudo nano /etc/nginx/nginx.conf
 ```
-**❗ALTERAÇÃO❗**
+**❗ ALTERAÇÃO ❗**
 ```
 http {
     ...
@@ -260,4 +260,69 @@ DB_PASS=SuaSenh@
 DB_NAME=nameUser
 PORT=8081
 ```
-Com as alterações 
+Com as alterações feitas, enviaremos o comando `pm2 start npm --name nameUserbot-backend -- start`, e enviaremos os seguintes comandos para instalar o npm e fazer algumas aterações em seu backend. 
+
+```
+cd ../frontend-chatbot
+npm install
+nano .env
+```
+**❗ ALTERAÇÔES ❗**
+```
+REACT_APP_BACKEND_URL = https://seudominiobotapi.3csolucoes.tec.br
+REACT_APP_HOURS_CLOUSE_TICKETS_AUTO=1440
+```
+Com as alterações feitas, enviaremos o comando `pm2 start npm --name seudominiobot-frontend -- start`, para inicializar seu frontend, e com os próximos comandos salvar e logo após iremos fazer algumas alterações em seu frontend.
+```
+pm2 save
+pm2 list
+
+sudo nano /etc/nginx/sites-available/userNamebot-frontend
+``` 
+**❗ ALTERAÇÔES ❗**
+```
+server {
+  server_name coopacredibot.3csolucoes.tec.br;
+
+  location / {
+    proxy_pass http://127.0.0.1:3000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_cache_bypass $http_upgrade;
+  }
+} 
+```
+Com as alterações feitas iremos, fazer outra alteração em seu backend enviando o seguinte comando `sudo nano /etc/nginx/sites-available/nameUserbot-backend`
+
+**❗ ALTERAÇÃO❗**
+```
+  location / {
+    proxy_pass http://127.0.0.1:8081;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_cache_bypass $http_upgrade;
+  }
+}
+```
+Com nossas alterações feitas enviaremos os últimos comandos para finalizarmos a instalação do nosso *servidor Chatbot*. 
+```
+cd /etc/nginx/sites-available/
+ls
+sudo ln -s /etc/nginx/sites-available/coopacredibot-frontend /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/coopacredibot-backend /etc/nginx/sites-enabled
+sudo nginx -t
+sudo service nginx restart
+sudo certbot --nginx
+```
+
+Com esses últimos comandos, o nosso **ChatBot** estará devidamente instalado, fazendo assim a instalação completa do nosso **3CTalk**. Para entrar e usufruir de seu 3CTalk é necessário apenas digitar no seu navegador *seudominio.3csolucoes.tec.br*
