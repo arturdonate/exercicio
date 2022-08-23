@@ -27,7 +27,7 @@ Antes de iniciar os comandos, você deverá criar 4 subdomínios e apontar para 
 - SUB 3: FRONTEND DO 3CTalk > seudominio.3csolucoes.tec.br
 - SUB 4: BACKEND DO 3CTalk > seudominioapi.3csolucoes.tec.br
 
-**Provavelmente o *seudominio* será o seu *nameUser*.**
+**Provavelmente o *"seudominio"* será o seu *"nameUser"*.**
 
 ***Os domínios aqui citados são apenas exemplos.***
 
