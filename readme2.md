@@ -1,4 +1,4 @@
-##  3cTalk 💻 <img src="Users/E050/Desktop/Geovani/3C Talk/favicon"> 
+##  3cTalk 💻 <img src="3Clogo.png"> 
 
 ##  *O que é 3CTalk? 🔍*
 
